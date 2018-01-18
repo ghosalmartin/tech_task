@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">TechTask</string>
+
+    <string name="github_tab_title">GitHub User Search</string>
+    <string name="login_tab_title">Login</string>
+    <string name="todo_tab_title">ToDo</string>
+    <string name="github_textfield_search_term_hint">Search Term</string>
+    <string name="no_browser">You have no browser installed</string>
+
 </resources>
