@@ -53,4 +53,8 @@ class GitHubUserSearchFragment : Fragment(), GitHubUserSearchView {
     override fun updateDataSet(results: List<GitHubUserSearchItem>?) {
         adapter.update(results)
     }
+
+    override fun clearDataSet() {
+        adapter.clear()
+    }
 }

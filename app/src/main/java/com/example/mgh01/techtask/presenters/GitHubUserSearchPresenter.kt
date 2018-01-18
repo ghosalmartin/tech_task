@@ -7,14 +7,15 @@ import io.reactivex.disposables.Disposable
 import java.util.concurrent.TimeUnit
 
 class GitHubUserSearchPresenter(private val repo: GitHubRepository = GitHubRepository(),
-                                private val view: GitHubUserSearchView){
+                                private val view: GitHubUserSearchView) {
 
     private var disposable: Disposable? = null
 
-    fun search(){
+    fun search() {
         disposable = view.getSearchFlowable()
-                .debounce(500, TimeUnit.MILLISECONDS)
-                .filter{
+                .throttleLast(100, TimeUnit.MILLISECONDS)
+                .debounce(200, TimeUnit.MILLISECONDS)
+                .filter {
                     it.isNotBlank()
                 }
                 .flatMapSingle {
@@ -23,7 +24,7 @@ class GitHubUserSearchPresenter(private val repo: GitHubRepository = GitHubRepos
                 .onDefaultSchedulers()
                 .subscribe({
                     view.updateDataSet(it.items)
-                },{
+                }, {
                     it.printStackTrace()
                 })
     }
@@ -31,6 +32,5 @@ class GitHubUserSearchPresenter(private val repo: GitHubRepository = GitHubRepos
     fun tearDown() {
         disposable?.dispose()
     }
-
 
 }

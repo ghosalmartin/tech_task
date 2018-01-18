@@ -6,4 +6,5 @@ import io.reactivex.Flowable
 interface GitHubUserSearchView{
     fun getSearchFlowable(): Flowable<String>
     fun updateDataSet(results : List<GitHubUserSearchItem>?)
+    fun clearDataSet()
 }

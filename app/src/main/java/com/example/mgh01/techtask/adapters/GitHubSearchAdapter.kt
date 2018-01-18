@@ -28,4 +28,9 @@ class GitHubSearchAdapter : RecyclerView.Adapter<GitHubUserTileViewHolder>() {
         this.results.addAll(results.toMutableList())
         notifyDataSetChanged()
     }
+
+    fun clear() {
+        results.clear()
+        notifyDataSetChanged()
+    }
 }
