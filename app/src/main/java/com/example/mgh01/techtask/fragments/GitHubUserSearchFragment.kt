@@ -10,6 +10,7 @@ import com.example.mgh01.techtask.R
 import com.example.mgh01.techtask.adapters.GitHubSearchAdapter
 import com.example.mgh01.techtask.models.GitHubUserSearchItem
 import com.example.mgh01.techtask.presenters.GitHubUserSearchPresenter
+import com.example.mgh01.techtask.utils.EqualSpacingItemDecoration
 import com.example.mgh01.techtask.views.GitHubUserSearchView
 import com.jakewharton.rxbinding2.widget.RxTextView
 import io.reactivex.BackpressureStrategy
@@ -30,8 +31,8 @@ class GitHubUserSearchFragment : Fragment(), GitHubUserSearchView {
         presenter = GitHubUserSearchPresenter(view = this)
 
         github_search_recyclerview.layoutManager = GridLayoutManager(context, 3)
+        github_search_recyclerview.addItemDecoration(EqualSpacingItemDecoration(16, EqualSpacingItemDecoration.GRID))
         github_search_recyclerview.adapter = adapter
-
     }
 
     override fun onResume() {
