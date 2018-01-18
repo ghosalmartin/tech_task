@@ -2,4 +2,12 @@
 <resources>
     <dimen name="github_image_size">125dp</dimen>
     <dimen name="activity_horizontal_margins">10dp</dimen>
+    <dimen name="input_field_text_size">18sp</dimen>
+    <dimen name="title_text_size">24sp</dimen>
+    <dimen name="medium_text_size">14sp</dimen>
+    <dimen name="margin_between_text_fields_and_button">30dp</dimen>
+    <dimen name="how_does_it_work_button_padding">30dp</dimen>
+    <dimen name="login_title_to_textfield_margin">20dp</dimen>
+    <dimen name="item_to_item_margin">10dp</dimen>
+    <dimen name="buttons_text_size">16sp</dimen>
 </resources>

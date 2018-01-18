@@ -10,4 +10,8 @@ import com.example.mgh01.techtask.R
 class LoginFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
             inflater.inflate(R.layout.fragment_login, container, false)
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+    }
 }

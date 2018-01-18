@@ -8,5 +8,12 @@
     <string name="no_browser">You have no browser installed</string>
     <string name="error_title">Error!</string>
     <string name="dimiss_button_text">Close</string>
+    <string name="login_title">BulbLoginScreen</string>
+    <string name="login_email_address_hint">Email Address</string>
+    <string name="login_password_hint">Password</string>
+    <string name="remember_me">Remember me</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="log_in">LOG IN</string>
+    <string name="how_does_it_work">HOW DOES IT WORK?</string>
 
 </resources>
