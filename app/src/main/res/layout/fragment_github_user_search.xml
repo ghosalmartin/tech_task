@@ -21,7 +21,7 @@
     </android.support.design.widget.TextInputLayout>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/github_search_recyclerview"
+        android:id="@+id/github_search_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

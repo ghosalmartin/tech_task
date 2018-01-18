@@ -31,9 +31,9 @@ class GitHubUserSearchFragment : Fragment(), GitHubUserSearchView {
         super.onViewCreated(view, savedInstanceState)
         presenter = GitHubUserSearchPresenter(view = this)
 
-        github_search_recyclerview.layoutManager = GridLayoutManager(context, 3)
-        github_search_recyclerview.addItemDecoration(EqualSpacingItemDecoration(16, EqualSpacingItemDecoration.GRID))
-        github_search_recyclerview.adapter = adapter
+        github_search_recycler_view.layoutManager = GridLayoutManager(context, 3)
+        github_search_recycler_view.addItemDecoration(EqualSpacingItemDecoration(16, EqualSpacingItemDecoration.GRID))
+        github_search_recycler_view.adapter = adapter
     }
 
     override fun onResume() {

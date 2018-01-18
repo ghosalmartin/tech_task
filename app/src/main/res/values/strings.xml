@@ -15,5 +15,8 @@
     <string name="forgot_password">Forgot password?</string>
     <string name="log_in">LOG IN</string>
     <string name="how_does_it_work">HOW DOES IT WORK?</string>
+    <string name="todo">ToDo</string>
+    <string name="add">Add</string>
+    <string name="delete">Delete</string>
 
 </resources>

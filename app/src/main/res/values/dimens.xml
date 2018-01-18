@@ -10,4 +10,5 @@
     <dimen name="login_title_to_textfield_margin">20dp</dimen>
     <dimen name="item_to_item_margin">10dp</dimen>
     <dimen name="buttons_text_size">16sp</dimen>
+    <dimen name="add_button_height">50dp</dimen>
 </resources>
