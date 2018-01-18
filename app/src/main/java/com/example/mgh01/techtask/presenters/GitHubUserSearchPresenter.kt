@@ -4,6 +4,7 @@ import com.example.mgh01.techtask.extensions.onDefaultSchedulers
 import com.example.mgh01.techtask.repositories.GitHubRepository
 import com.example.mgh01.techtask.views.GitHubUserSearchView
 import io.reactivex.disposables.Disposable
+import retrofit2.HttpException
 import java.util.concurrent.TimeUnit
 
 class GitHubUserSearchPresenter(private val repo: GitHubRepository = GitHubRepository(),
@@ -22,11 +23,15 @@ class GitHubUserSearchPresenter(private val repo: GitHubRepository = GitHubRepos
                     repo.searchForUsers(it)
                 }
                 .onDefaultSchedulers()
-                .subscribe({
-                    view.updateDataSet(it.items)
-                }, {
-                    it.printStackTrace()
-                })
+                .subscribe(
+                        {
+                            view.updateDataSet(it.items)
+                        },
+                        {
+                            when (it) {
+                                is HttpException -> view.displayError(it.message())
+                            }
+                        })
     }
 
     fun tearDown() {

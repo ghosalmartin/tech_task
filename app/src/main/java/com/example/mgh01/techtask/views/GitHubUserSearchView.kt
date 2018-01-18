@@ -7,4 +7,5 @@ interface GitHubUserSearchView{
     fun getSearchFlowable(): Flowable<String>
     fun updateDataSet(results : List<GitHubUserSearchItem>?)
     fun clearDataSet()
+    fun displayError(message: String)
 }

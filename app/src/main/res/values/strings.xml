@@ -6,5 +6,7 @@
     <string name="todo_tab_title">ToDo</string>
     <string name="github_textfield_search_term_hint">Search Term</string>
     <string name="no_browser">You have no browser installed</string>
+    <string name="error_title">Error!</string>
+    <string name="dimiss_button_text">Close</string>
 
 </resources>

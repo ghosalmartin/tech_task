@@ -1,5 +1,6 @@
 package com.example.mgh01.techtask.fragments
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
@@ -56,5 +57,16 @@ class GitHubUserSearchFragment : Fragment(), GitHubUserSearchView {
 
     override fun clearDataSet() {
         adapter.clear()
+    }
+
+    override fun displayError(message: String) {
+        val builder = AlertDialog.Builder(context, android.R.style.Theme_Material_Dialog_Alert)
+        builder
+                .setTitle(R.string.error_title)
+                .setMessage(message)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setNegativeButton(getString(R.string.dimiss_button_text)) { dialog, _ ->
+                    dialog.dismiss()
+                }.show()
     }
 }
