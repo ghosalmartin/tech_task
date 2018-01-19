@@ -1,11 +1,11 @@
 package com.example.mgh01.techtask
 
 import android.app.Application
-import io.paperdb.Paper
+import io.realm.Realm
 
 class MainApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-        Paper.init(this)
+        Realm.init(this.applicationContext)
     }
 }

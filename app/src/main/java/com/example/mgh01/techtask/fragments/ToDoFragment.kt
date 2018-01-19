@@ -2,7 +2,7 @@ package com.example.mgh01.techtask.fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,16 +10,13 @@ import com.example.mgh01.techtask.R
 import com.example.mgh01.techtask.adapters.ToDoAdapter
 import com.example.mgh01.techtask.models.ToDoItem
 import com.example.mgh01.techtask.presenters.ToDoPresenter
-import com.example.mgh01.techtask.utils.EqualSpacingItemDecoration
 import com.example.mgh01.techtask.views.ToDoView
+import io.realm.RealmResults
 import kotlinx.android.synthetic.main.fragment_todo.*
 
 class ToDoFragment : Fragment(), ToDoView {
 
-    private val onDeletePressed: (Int) -> Unit = { position ->
-        presenter.deleteToDo(position)
-    }
-    private val adapter = ToDoAdapter(onDeletePressed)
+    private lateinit var adapter: ToDoAdapter
 
     private lateinit var presenter: ToDoPresenter
 
@@ -31,22 +28,23 @@ class ToDoFragment : Fragment(), ToDoView {
         presenter = ToDoPresenter(view = this)
         presenter.getToDos()
 
-        todo_search_recycler_view.layoutManager = GridLayoutManager(context, 3)
-        todo_search_recycler_view.addItemDecoration(EqualSpacingItemDecoration(16, EqualSpacingItemDecoration.GRID))
-        todo_search_recycler_view.adapter = adapter
-
         to_do_add.setOnClickListener {
             insertToDo()
         }
-
     }
 
     private fun insertToDo() {
         presenter.insertToDo(github_search_text_field.text.toString())
     }
 
-    override fun updateToDos(toDoItems: List<ToDoItem>) {
-        adapter.update(toDoItems)
+    override fun deleteToDo(toDoItem: ToDoItem?) {
+        presenter.deleteToDo(toDoItem)
+    }
+
+    override fun initializeData(toDoItems: RealmResults<ToDoItem>) {
+        adapter = ToDoAdapter(toDoItems, this)
+        todo_search_recycler_view.layoutManager = LinearLayoutManager(context)
+        todo_search_recycler_view.adapter = adapter
     }
 
 }
