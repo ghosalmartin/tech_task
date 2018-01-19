@@ -11,13 +11,13 @@ import java.util.concurrent.TimeUnit
 
 object Network {
 
-    private const val TIMEOUT_VALUE = 15L
+    private const val TIMEOUT_VALUE = 30L
 
     private val jacksonFactory: JacksonConverterFactory = JacksonConverterFactory.create(ignoreUnknownObjectMapper())
     private val rxJavaCallAdapterFactory = RxJava2CallAdapterFactory.create()
     private val httpClient = OkHttpClient.Builder().readTimeout(TIMEOUT_VALUE, TimeUnit.SECONDS).connectTimeout(TIMEOUT_VALUE, TimeUnit.SECONDS).build()
 
-    fun <S> createService(serviceClass: Class<S>, baseUrl: String) =
+    fun <S> createService(serviceClass: Class<S>, baseUrl: String): S =
             Retrofit.Builder()
                     .baseUrl(baseUrl)
                     .addConverterFactory(jacksonFactory)

@@ -30,6 +30,7 @@ class GitHubUserSearchPresenter(private val repo: GitHubRepository = GitHubRepos
                         {
                             when (it) {
                                 is HttpException -> view.displayError(it.message())
+                                else -> it.printStackTrace()
                             }
                         })
     }
