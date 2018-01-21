@@ -37,6 +37,11 @@ class ToDoFragment : Fragment(), ToDoView {
         presenter.insertToDo(github_search_text_field.text.toString())
     }
 
+    override fun onPause() {
+        presenter.tearDown()
+        super.onPause()
+    }
+
     override fun deleteToDo(toDoItem: ToDoItem?) {
         presenter.deleteToDo(toDoItem)
     }
